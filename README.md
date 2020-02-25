@@ -23,5 +23,5 @@ The container WORKDIR is: `/home/flask/file_server/`. The host file save dir is:
 
 Docker run command:
 
-```docker run -it -p 8010:8010 -e FS_BIND=0.0.0.0 -e FS_PORT=8010  -e FS_PATH=./dir_file -e FS_AUTH_KEY=OnBhc3N3MHJk -v /home/file_server:/home/flask/file_server/dir_file scenerycm/flask-file-server:1.0```
+```docker run -d -it -p 8010:8010 -e FS_BIND=0.0.0.0 -e FS_PORT=8010  -e FS_PATH=./dir_file -e FS_AUTH_KEY=OnBhc3N3MHJk -v /home/file_server:/home/flask/file_server/dir_file scenerycm/flask-file-server:1.0```
 
