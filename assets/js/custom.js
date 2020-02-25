@@ -102,7 +102,7 @@ $(document).ready(function(){
                 url: file_id,
                 type: "DELETE",
                 data: {},
-                // 直接请求 JSON 类型，会返回 json 对象，而非字符串
+                // * 直接请求 JSON 类型，会返回 json 对象，而非字符串
                 dataType: "JSON",
                 success: function (data) {
                     // 如果返回 json 字符串在传递给成功回调函数前，要通过jQuery.parse(JSON) 解析成JSON对象
@@ -110,15 +110,14 @@ $(document).ready(function(){
                     if (data.status == 'success') {
                         // data.status 等于 success 时，则说明成功，前端处理，此处为重新加载本页。
                         location.reload();
-                        //alert("删除失败，原因："+ data.msg);
                     } else {
                         // 不等于 succes 则说明删除失败，原因有很多，具体呢，就是服务端返回的 data.msg
                         alert("Delete Failed, Reason: "+ data.msg);
                     }
                 },
+                // * ajax 错误返回三个参数： jqXHR, textStatus, errorThrown
                 error: function (jqxhr) {
                     data = JSON.parse(jqxhr.responseText);
-                    // 不等于 succes 则说明删除失败，原因有很多，具体呢，就是服务端返回的 data.msg
                     alert("Delete Failed, Reason: "+ data.msg);
                 },                
             });
