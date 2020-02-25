@@ -4,6 +4,8 @@ FROM: https://github.com/Wildog/flask-file-server
 
 A flask file server with an elegant frontend for browsing, uploading, streaming and deleting files.
 
+![screenshot](https://raw.githubusercontent.com/scenerycm/flask-fileServer/master/screenshot.jpg)
+
 ## Quick Start
 ### Build
 
