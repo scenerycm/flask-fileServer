@@ -20,5 +20,8 @@ FS_COMMON_KEY = Param for authentication key as base64 encoded username:password
 FS_AUTH_KEY =  Param for authentication key as base64 encoded username:password, default none, use to delete files or folders
 
 The container WORKDIR is: `/home/flask/file_server/`. The host file save dir is: `/home/file_server`
+
+Docker run command:
+
 ```docker run -it -p 8010:8010 -e FS_BIND=0.0.0.0 -e FS_PORT=8010  -e FS_PATH=./dir_file -e FS_AUTH_KEY=OnBhc3N3MHJk -v /home/file_server:/home/flask/file_server/dir_file scenerycm/flask-file-server:1.0```
 
