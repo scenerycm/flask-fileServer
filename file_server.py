@@ -249,4 +249,4 @@ app.add_url_rule('/', view_func=path_view)
 app.add_url_rule('/<path:p>', view_func=path_view)
 
 if __name__ == '__main__':
-    app.run(bind, port, threaded=True, debug=True)
+    app.run(bind, port, threaded=True, debug=False)

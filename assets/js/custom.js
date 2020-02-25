@@ -96,15 +96,17 @@ $(document).ready(function(){
     $('#confirm-modal').on('show.bs.modal', function (e) {
         // $(this).find('.btn-danger').attr('href', $(e.relatedTarget).data('href'));
         var file_id = $(e.relatedTarget).data('href');
-        // 通过 ajax 发送 DELETE 请求
+        // 通过 ajax 发送异步 DELETE 请求
         $('a.btn-delete-confirm').on('click', function () {
             $.ajax({
                 url: file_id,
                 type: "DELETE",
                 data: {},
+                // 直接请求 JSON 类型，会返回 json 对象，而非字符串
                 dataType: "JSON",
                 success: function (data) {
-                    // data = JSON.parse(data)
+                    // 如果返回 json 字符串在传递给成功回调函数前，要通过jQuery.parse(JSON) 解析成JSON对象
+                    // data = JSON.parse(data);
                     if (data.status == 'success') {
                         // data.status 等于 success 时，则说明成功，前端处理，此处为重新加载本页。
                         location.reload();
@@ -115,7 +117,7 @@ $(document).ready(function(){
                     }
                 },
                 error: function (jqxhr) {
-                    data = JSON.parse(jqxhr.responseText)
+                    data = JSON.parse(jqxhr.responseText);
                     // 不等于 succes 则说明删除失败，原因有很多，具体呢，就是服务端返回的 data.msg
                     alert("Delete Failed, Reason: "+ data.msg);
                 },                
