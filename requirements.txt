@@ -1,0 +1,5 @@
+flask
+humanize
+pathlib2
+werkzeug
+uwsgi

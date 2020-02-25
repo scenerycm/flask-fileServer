@@ -1,0 +1,3 @@
+DELETE http://127.0.0.1:8000/222.docx
+Accept: application/json, text/html
+Cookie: username=; auth_cookie=Og==; hide-dotfile=no; session=.eJyrVkouLSpKzSsJSCzJULJSUtJRSsvMSfXJLC5RsoqOhfACilIR0gVKVqZAEsj3ACrKL6oEqgNry0kszo5PKykITi0qSy0CisAFSxKTclJ9E_MS01OLwlOToFIlBbqpFYm5BTmpEIGSVCA7sSS1GMSNrQUAM84x8w.XlPW9A.rZ0aqpib-vhy3qMa2O7gKqtJcyU
