@@ -162,13 +162,13 @@ class PathView(MethodView):
                 info['status'] = 'error'
                 info['msg'] = 'Invalid Operation'
             res = make_response(json.JSONEncoder().encode(info), 201)
-            res.headers.add('Content-type', 'application/json')
+            # res.headers.add('Content-type', 'application/json')
         else:
             info = {} 
             info['status'] = 'error'
             info['msg'] = 'Authentication failed'
             res = make_response(json.JSONEncoder().encode(info), 401)
-            res.headers.add('Content-type', 'application/json')
+            # res.headers.add('Content-type', 'application/json')
         return res
 
     def post(self, p=''):
@@ -194,13 +194,13 @@ class PathView(MethodView):
                 info['status'] = 'error'
                 info['msg'] = 'Invalid Operation'
             res = make_response(json.JSONEncoder().encode(info), 200)
-            res.headers.add('Content-type', 'application/json')
+            # res.headers.add('Content-type', 'application/json')
         else:
             info = {} 
             info['status'] = 'error'
             info['msg'] = 'Authentication failed'
             res = make_response(json.JSONEncoder().encode(info), 401)
-            res.headers.add('Content-type', 'application/json')
+            # res.headers.add('Content-type', 'application/json')
         return res
     
     def delete(self, p=''):

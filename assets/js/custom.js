@@ -1,28 +1,31 @@
 function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
     }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return undefined;
+    return undefined;
 }
 $(document).ready(function(){
-    $("#login").submit(function( event ) {
-      var hash = $.base64.encode($( "#username" ).val()+":"+$( "#password" ).val())      
-      document.cookie = "username="+$("#username").val()+";path=/"
-      document.cookie = "auth_cookie="+hash+";path=/"
-      $("#userlogin").text($( "#username" ).val())
-      $('#login-modal').modal('toggle');
-      event.preventDefault();
+    $("#login").submit(function (event) {
+        var hash = $.base64.encode($("#username").val() + ":" + $("#password").val())
+        document.cookie = "username=" + $("#username").val() + ";path=/"
+        document.cookie = "auth_cookie=" + hash + ";path=/"
+        $("#userlogin").text($("#username").val())
+        $('#login-modal').modal('toggle');
+        event.preventDefault();   
     });
     $("#userlogin").text(getCookie("username") || "Login");
+    $("#send-login").on('click', function () {
+        location.reload();
+    })
     $('#uploader-modal').on('hidden.bs.modal', function () {
         location.reload();
     })
@@ -112,18 +115,18 @@ $(document).ready(function(){
                         location.reload();
                     } else {
                         // 不等于 succes 则说明删除失败，原因有很多，具体呢，就是服务端返回的 data.msg
-                        alert("Delete Failed, Reason: "+ data.msg);
+                        alert("Delete Failed, Reason: " + data.msg);
                     }
                 },
                 // * ajax 错误返回三个参数： jqXHR, textStatus, errorThrown
                 error: function (jqxhr) {
                     data = JSON.parse(jqxhr.responseText);
-                    alert("Delete Failed, Reason: "+ data.msg);
-                },                
+                    alert("Delete Failed, Reason: " + data.msg);
+                },
             });
 
         });
-    });    
+    });
 });
 
 
